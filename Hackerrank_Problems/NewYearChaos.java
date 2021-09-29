@@ -1,3 +1,20 @@
+/*
+    Print minimum number of bribes required to form the required queue. One person can bribe maximum 2 times, if more than 2 then print "Too chaotic". The queue should have been in ascending order initially.
+    
+    Sample input & output:
+    
+    n = 5
+    queue: 2 1 5 3 4
+    
+    minimum number of bribes = 3
+    
+    n = 8
+    queue: 5 1 2 3 7 8 6 4
+    
+    minimum number of bribes = Too chaotic
+    
+*/
+
 import java.util.*;
 public class NewYearChaos
 {
