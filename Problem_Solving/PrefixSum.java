@@ -1,3 +1,12 @@
+/*
+    Given an array, we need to find the sum of elements from specified starting index to an ending index.
+    
+    array  -->  1 2 3 4 5
+    query  -->  startIndex = 2  endIndex = 4    (0 based)
+    
+    result = 3 + 4 + 5 = 12
+*/
+
 import java.util.*;
 public class PrefixSum
 {
