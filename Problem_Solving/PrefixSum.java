@@ -35,7 +35,14 @@ public class PrefixSum
             int startPosition = sc.nextInt();
             System.out.println("Enter end position:");
             int endPosition = sc.nextInt();
-            System.out.println(prefix[endPosition] - prefix[startPosition - 1]);
+            if(startPosition - 1 < 0)
+            {
+                System.out.println(prefix[endPosition]);
+            }                
+            else
+            {
+                System.out.println(prefix[endPosition] - prefix[startPosition - 1]);
+            }
             i++;
         }
         sc.close();
