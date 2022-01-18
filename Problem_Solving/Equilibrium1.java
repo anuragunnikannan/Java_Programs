@@ -11,7 +11,7 @@
 import java.util.*;
 public class Equilibrium1
 {
-    public int getEquilibrium(int arr[], int n)
+    /* public int getEquilibrium(int arr[], int n)
     {
         int sum = 0, leftsum = 0;
         for(int i = 0;i<n;i++)
@@ -28,6 +28,30 @@ public class Equilibrium1
             leftsum += arr[i];  //Store the sum of elements that are subtracted from rightsum
         }
         return -1;  //if no equilibrium exists
+    } */
+    
+    public int getEquilibrium(int arr[], int n)
+    {
+        int prefix[] = new int[n];
+        prefix[0] = arr[0]; //Storing prefixSum of first element. Prefix Sum is just the cumulative sum
+        for(int i = 1;i<n;i++)  //Loop starting from 1 since, sum of 1st element is already stored
+        {
+            prefix[i] = prefix[i-1] + arr[i];   //Cumulative sum
+        }
+        for(int i = 0;i<n;i++)
+        {
+            int leftsum = 0;
+            if(i > 0)
+            {
+                leftsum = prefix[i-1]; //if there is atleast one element in the left part, then store it into left sum
+            }
+            int rightsum = prefix[n-1] - prefix[i];   //Rightsum is equal to last element of prefixSum - the current element
+            if(leftsum == rightsum)    //if both leftsum and rightsum are equal, then return the 1 based index. Else -1
+            {
+                return i+1;
+            }
+        }
+        return -1;
     }
     
     public static void main(String args[])
