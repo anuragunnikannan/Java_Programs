@@ -45,7 +45,7 @@ public class Equilibrium1
             {
                 leftsum = prefix[i-1]; //if there is atleast one element in the left part, then store it into left sum
             }
-            int rightsum = prefix[n-1] - prefix[i];   //Rightsum is equal to last element of prefixSum - the current element
+            int rightsum = prefix[n-1] - prefix[i];   //Rightsum is equal to sum till last element (prefixSum) - sum till the current element (prefixSum)
             if(leftsum == rightsum)    //if both leftsum and rightsum are equal, then return the 1 based index. Else -1
             {
                 return i+1;
