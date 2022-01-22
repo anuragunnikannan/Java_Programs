@@ -165,6 +165,22 @@ public class LinkedListOperations
         return size;
     }
 
+    public int searchItem(int item)
+    {
+        Node currNode = head;
+        int pos = 1;
+        while(currNode != null)
+        {
+            if(currNode.data == item)
+            {
+                return pos;
+            }
+            currNode = currNode.next;
+            pos++;
+        }
+        return -1;
+    }
+
     public void printList()
     {
         Node currNode = head;
@@ -189,8 +205,9 @@ public class LinkedListOperations
             System.out.println("5. Deletion at Middle");
             System.out.println("6. Deletion at End");
             System.out.println("7. Length");
-            System.out.println("8. Print");
-            System.out.println("9. Exit");
+            System.out.println("8. Search");
+            System.out.println("9. Print");
+            System.out.println("10. Exit");
             System.out.println("Enter your choice:");
             int choice = sc.nextInt();
             int item = 0, location = 0;
@@ -234,9 +251,14 @@ public class LinkedListOperations
                 System.out.println("Length: "+ll.getSize());
                 break;
                 case 8:
-                ll.printList();
+                System.out.println("Enter element to search");
+                item = sc.nextInt();
+                System.out.println("Position: "+ll.searchItem(item));
                 break;
                 case 9:
+                ll.printList();
+                break;
+                case 10:
                 System.exit(0);
                 default:
                 System.out.println("Invalid Choice");
