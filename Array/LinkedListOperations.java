@@ -181,6 +181,45 @@ public class LinkedListOperations
         return -1;
     }
 
+    public Node iterativeReverse()
+    {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+        else
+        {
+            Node prevNode = head;
+            Node currNode = head.next;
+            while(currNode != null)
+            {
+                Node nextNode = currNode.next;      //prevNode will store i-1 th element, currNode will store i th element, nextNode will store i+1 th element.
+                currNode.next = prevNode;       //we will make current node point to previous node, instead of next node, so as to reverse it.
+                
+                prevNode = currNode;        //we keep on updating/storing the reversed list in previous node.
+                currNode = nextNode;        //currNode will have the next element, that was present in next node.
+            }
+            head.next = null;   //in the original list, the first element is still pointing to the original second element, so removing that link
+            head = prevNode;    //storing the reversed node inside the main list or head node
+            return head;
+        }
+    }
+
+    public Node recursiveReverse(Node head)
+    {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+        else
+        {
+            Node newHead = recursiveReverse(head.next);
+            head.next.next = head;
+            head.next = null;
+            return newHead;
+        }
+    }
+
     public void printList()
     {
         Node currNode = head;
@@ -206,8 +245,9 @@ public class LinkedListOperations
             System.out.println("6. Deletion at End");
             System.out.println("7. Length");
             System.out.println("8. Search");
-            System.out.println("9. Print");
-            System.out.println("10. Exit");
+            System.out.println("9. Reverse");
+            System.out.println("10. Print");
+            System.out.println("11. Exit");
             System.out.println("Enter your choice:");
             int choice = sc.nextInt();
             int item = 0, location = 0;
@@ -256,9 +296,13 @@ public class LinkedListOperations
                 System.out.println("Position: "+ll.searchItem(item));
                 break;
                 case 9:
+                ll.head = ll.recursiveReverse(ll.head);
                 ll.printList();
                 break;
                 case 10:
+                ll.printList();
+                break;
+                case 11:
                 System.exit(0);
                 default:
                 System.out.println("Invalid Choice");
