@@ -160,6 +160,23 @@ public class LinkedListOperations
         }
     }
 
+    public Node delN(Node head, int n)
+    {
+        if(head == null)
+        {
+            return null;
+        }
+        Node currNode = head;
+        int i = 1;
+        while(i < size-n)
+        {
+            currNode = currNode.next;
+            i++;
+        }
+        currNode.next = currNode.next.next;
+        return head;
+    }
+
     public int getSize()
     {
         return size;
@@ -246,8 +263,9 @@ public class LinkedListOperations
             System.out.println("7. Length");
             System.out.println("8. Search");
             System.out.println("9. Reverse");
-            System.out.println("10. Print");
-            System.out.println("11. Exit");
+            System.out.println("10. Delete Nth Node from End");
+            System.out.println("11. Print");
+            System.out.println("12. Exit");
             System.out.println("Enter your choice:");
             int choice = sc.nextInt();
             int item = 0, location = 0;
@@ -300,9 +318,15 @@ public class LinkedListOperations
                 ll.printList();
                 break;
                 case 10:
+                System.out.println("Enter nth node from end to be deleted:");
+                int n = sc.nextInt();
+                ll.head = ll.delN(ll.head, n);
                 ll.printList();
                 break;
                 case 11:
+                ll.printList();
+                break;
+                case 12:
                 System.exit(0);
                 default:
                 System.out.println("Invalid Choice");
