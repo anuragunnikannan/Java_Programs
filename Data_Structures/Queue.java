@@ -16,7 +16,7 @@ class Queue
         }
     }
 
-    public void insert(int data)
+    public void insert(int data)        //O(1)
     {
         if(front==-1)       //For beginning of Queue
         {
@@ -34,7 +34,7 @@ class Queue
         }
     }
 
-    public void remove()
+    public void remove()        //O(n) - because we are shifting the elements to the left after deletion. (Circular Queue reduces this time)
     {
         int rem;
         if(front==-1 ||front>rear)
@@ -43,9 +43,12 @@ class Queue
         }
         else
         {
-            rem = Q[front];
-            System.out.println(rem+" removed");
-            front++;
+            rem = Q[0];
+            for(int i = 0; i < rear; i++)
+            {
+                Q[i] = Q[i+1];
+            }
+            rear--;
         }
     }
 
