@@ -1,9 +1,9 @@
 import java.util.*;
-class Stack
+class StackArray
 {
     int s[];
     int top, n;
-    Stack(int nn)   //Constructor to initialize  global variables
+    StackArray(int nn)   //Constructor to initialize  global variables
     {
         n = nn;
         s = new int[n];
@@ -62,7 +62,7 @@ class Stack
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of stack: ");
         int n = sc.nextInt();
-        Stack st = new Stack(n);
+        StackArray st = new StackArray(n);
         int c;
         while(true)
         {
