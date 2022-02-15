@@ -27,18 +27,20 @@ class StackArray
         }
     }
 
-    public void pop()
+    public int pop()
     {
         int deleted_data;
         if(top==-1)
         {
             System.out.println("Stack Underflow");
+            return -99999;
         }
         else
         {
             deleted_data = s[top];  //Storing deleted element in another variable
             System.out.println(deleted_data+" popped");
             top--;  //Deleting the topmost element
+            return deleted_data;
         }
     }
 
@@ -81,7 +83,11 @@ class StackArray
                 st.display();
                 break;
                 case 2:
-                st.pop();
+                int r = st.pop();
+                if(r != -99999)
+                {
+                    System.out.println(r+" has been removed");
+                }
                 st.display();
                 break;
                 case 3:

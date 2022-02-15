@@ -1,11 +1,11 @@
 import java.util.*;
-class Queue
+class QueueArray
 {
     int Q[];
     int front;
     int rear;
     int n;
-    Queue(int nn)
+    QueueArray(int nn)
     {
         n = nn;
         Q = new int[n];
@@ -73,7 +73,7 @@ class Queue
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of queue: ");
         int n = sc.nextInt();
-        Queue qu = new Queue(n);
+        QueueArray qu = new QueueArray(n);
         int c;
         while(true)
         {
