@@ -198,7 +198,7 @@ public class LinkedListOperations
         return -1;
     }
 
-    public Node iterativeReverse()
+    /* public Node iterativeReverse()
     {
         if(head == null || head.next == null)
         {
@@ -220,6 +220,29 @@ public class LinkedListOperations
             head = prevNode;    //storing the reversed node inside the main list or head node
             return head;
         }
+    } */
+
+    public Node iterativeReverse()
+    {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+        else
+        {
+            Node prevNode = null;   //prevNode will store i-1 th element, initially which is null (before first element)
+            Node currNode = head;   //currNode will store i th element, initially which is first element or head
+            while(currNode != null)
+            {
+                Node nextNode = currNode.next;  //nextNode will store i+1 th element
+                currNode.next = prevNode;   //we will make current node point to previous node, instead of next node, so as to reverse it.
+
+                prevNode = currNode;    //we keep on updating/storing the reversed list in previous node
+                currNode = nextNode;    //currNode will have the next element, that was present in nextNode
+            }
+            return prevNode;
+        }
+        
     }
 
     public Node recursiveReverse(Node head)
@@ -314,7 +337,7 @@ public class LinkedListOperations
                 System.out.println("Position: "+ll.searchItem(item));
                 break;
                 case 9:
-                ll.head = ll.recursiveReverse(ll.head);
+                ll.head = ll.iterativeReverse();
                 ll.printList();
                 break;
                 case 10:
