@@ -198,30 +198,6 @@ public class LinkedListOperations
         return -1;
     }
 
-    /* public Node iterativeReverse()
-    {
-        if(head == null || head.next == null)
-        {
-            return head;
-        }
-        else
-        {
-            Node prevNode = head;
-            Node currNode = head.next;
-            while(currNode != null)
-            {
-                Node nextNode = currNode.next;      //prevNode will store i-1 th element, currNode will store i th element, nextNode will store i+1 th element.
-                currNode.next = prevNode;       //we will make current node point to previous node, instead of next node, so as to reverse it.
-                
-                prevNode = currNode;        //we keep on updating/storing the reversed list in previous node.
-                currNode = nextNode;        //currNode will have the next element, that was present in next node.
-            }
-            head.next = null;   //in the original list, the first element is still pointing to the original second element, so removing that link
-            head = prevNode;    //storing the reversed node inside the main list or head node
-            return head;
-        }
-    } */
-
     public Node iterativeReverse()
     {
         if(head == null || head.next == null)
