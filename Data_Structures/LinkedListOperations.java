@@ -98,11 +98,7 @@ public class LinkedListOperations
 
     public void deleteMiddle(int location)
     {
-        if(head == null)    //if list is empty
-        {
-            System.out.println("List is empty");
-        }
-        else if(location == 0)  //deletion at beginning
+        if(location == 0 || head == null)  //deletion at beginning
         {
             deleteFirst();
         }
