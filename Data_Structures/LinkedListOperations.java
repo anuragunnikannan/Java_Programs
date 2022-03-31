@@ -151,7 +151,7 @@ public class LinkedListOperations
         }
     }
     
-    public Node delNthNode(Node head, int n)
+    public Node delNthNode(Node head, int n)    //deletes nth node from end
     {
         Node currNode = new Node(0);
         currNode.next = head;
