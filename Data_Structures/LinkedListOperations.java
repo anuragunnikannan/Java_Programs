@@ -159,42 +159,6 @@ public class LinkedListOperations
             size--;
         }
     }
-
-    /* public Node delN(Node head, int n)
-    {
-        if(head == null)
-        {
-            return null;
-        }
-        Node currNode = head;
-        int i = 1;
-        while(i < size-n)
-        {
-            currNode = currNode.next;
-            i++;
-        }
-        currNode.next = currNode.next.next;
-        return head;
-    } */
-    
-    /* public Node delNthNode(Node head, int n)
-    {
-        Node currNode = new Node(0);
-        currNode.next = head;
-        Node fast = head;
-        Node slow = head;
-        for(int i = 1; i <= n; i++)
-        {
-            fast = fast.next;
-        }
-        while(fast.next != null)
-        {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        slow.next = slow.next.next;
-        return currNode.next;
-    } */
     
     public Node delNthNode(Node head, int n)
     {
