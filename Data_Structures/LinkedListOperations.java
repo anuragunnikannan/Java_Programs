@@ -39,12 +39,7 @@ public class LinkedListOperations
         Node newNode = new Node(data);
         int i = 0;
         Node currNode = head;
-        if(head == null)        //if list is empty
-        {
-            head = newNode;
-            size++;
-        }
-        else if(location == 0)      //adding at beginning
+        if(location == 0 || head == null)      //adding at beginning, or when list is empty
         {
             addFirst(data);
         }
