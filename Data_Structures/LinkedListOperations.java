@@ -160,7 +160,7 @@ public class LinkedListOperations
         }
     }
 
-    public Node delN(Node head, int n)
+    /* public Node delN(Node head, int n)
     {
         if(head == null)
         {
@@ -174,6 +174,44 @@ public class LinkedListOperations
             i++;
         }
         currNode.next = currNode.next.next;
+        return head;
+    } */
+    
+    /* public Node delNthNode(Node head, int n)
+    {
+        Node currNode = new Node(0);
+        currNode.next = head;
+        Node fast = head;
+        Node slow = head;
+        for(int i = 1; i <= n; i++)
+        {
+            fast = fast.next;
+        }
+        while(fast.next != null)
+        {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return currNode.next;
+    } */
+    
+    public Node delNthNode(Node head, int n)
+    {
+        Node currNode = new Node(0);
+        currNode.next = head;
+        Node fast = currNode;
+        Node slow = currNode;
+        for(int i = 1; i <= n; i++)
+        {
+            fast = fast.next;
+        }
+        while(fast != null && fast.next != null)
+        {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
         return head;
     }
 
@@ -218,7 +256,6 @@ public class LinkedListOperations
             }
             return prevNode;
         }
-        
     }
 
     public Node recursiveReverse(Node head)
@@ -319,7 +356,7 @@ public class LinkedListOperations
                 case 10:
                 System.out.println("Enter nth node from end to be deleted:");
                 int n = sc.nextInt();
-                ll.head = ll.delN(ll.head, n);
+                ll.head = ll.delNthNode(ll.head, n);
                 ll.printList();
                 break;
                 case 11:
