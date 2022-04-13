@@ -3,7 +3,6 @@ class StackArray
 {
     int s[];
     int top, n;
-    //a comment
     StackArray(int nn)   //Constructor to initialize  global variables
     {
         n = nn;
