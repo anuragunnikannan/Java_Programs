@@ -153,10 +153,8 @@ public class LinkedListOperations
     
     public Node delNthNode(Node head, int n)    //deletes nth node from end
     {
-        Node currNode = new Node(0);
-        currNode.next = head;
-        Node fast = currNode;
-        Node slow = currNode;
+        Node fast = head;
+        Node slow = head;
         for(int i = 1; i <= n; i++)
         {
             fast = fast.next;
