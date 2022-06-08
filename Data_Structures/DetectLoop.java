@@ -76,7 +76,7 @@ public class DetectLoop
             dl.insert(sc.nextInt());
         }
         //Intentionally creating a loop for testing
-        dl.head.next.next = dl.head;
+        dl.head.next.next.next = dl.head.next;
         
         dl.detect();
         dl.detect();
