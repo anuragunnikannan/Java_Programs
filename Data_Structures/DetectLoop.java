@@ -45,6 +45,7 @@ public class DetectLoop
             if(fast == slow)
             {
                 System.out.println("Loop Detected");
+                System.out.println(slow.data);
                 remove(slow, head);
                 return;
             }
