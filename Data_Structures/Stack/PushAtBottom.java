@@ -38,9 +38,9 @@ public class PushAtBottom
         System.out.println("Enter data to be pushed to the bottom:");
         int x = sc.nextInt();
         pushAtBottom(x, s);
-        System.out.println("New Stack:\n" + s);
+        System.out.println("New Stack: \n" + s);
         reverse(s);
-        System.out.println("\nReversed Stack:\n" + s);
+        System.out.println("\nReversed Stack: \n" + s);
         sc.close();
     }
 }
