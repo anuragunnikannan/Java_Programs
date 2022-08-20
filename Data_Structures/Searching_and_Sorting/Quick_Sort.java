@@ -9,7 +9,7 @@ public class Quick_Sort
         while(low < high)
         {
             //if left pointer is less than pivot, shift to right
-            while(arr[low] <= pivot)
+            while(low < high && arr[low] <= pivot)
             {
                 low++;
             }
@@ -59,7 +59,7 @@ public class Quick_Sort
         for(int i = 0;i<n;i++)
         {
             System.out.print(arr[i]+" ");
-        }        
+        }
         sc.close();
     }
 }
