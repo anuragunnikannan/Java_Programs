@@ -33,6 +33,35 @@ public class WordRank
 		}
 		return f;
 	}
+
+    public static int countRepetitions(String s)
+    {
+    	if(s.length() == 0)
+    	{
+    		return 1;
+    	}
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(char x : s.toCharArray())
+        {
+        	if(map.containsKey(x))
+        	{
+        		map.put(x, map.get(x)+1);
+        	}
+        	else
+        	{
+        		map.put(x, 1);
+        	}
+        }
+        int count = 0;
+        for(char key : map.keySet())
+        {
+        	if(map.get(key) > 1)
+        	{
+        		count += map.get(key);
+        	}
+        }
+		return count;
+	}
 	
     public static void main(String args[])
     {
@@ -48,7 +77,7 @@ public class WordRank
 		{
 			pos[x++] = search(s.charAt(i), c);
 		}
-		int rank = 0;
+		double rank = 0.0;
 		for(int i = 0; i < x; i++)
 		{
 			int count = 0;
@@ -59,10 +88,12 @@ public class WordRank
 					count++;
 				}
 			}
-			System.out.print(count+ " ");
-			rank = rank + count * fact(x - i - 1);
+			double w = fact(countRepetitions(s.substring(i)));
+			double y = count/w;
+			double z = fact(x - i - 1);
+			rank = rank + y * z;
 		}
-		rank = rank + 1;	//to also include the rank of the current word
+		rank = rank + 1.0;	//to also include the rank of the current word
 		System.out.println("\n"+rank);
         sc.close();
     }
